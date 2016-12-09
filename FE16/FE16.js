@@ -18,7 +18,21 @@ var count = 0;
  * 然后渲染aqi-list列表，增加新增的数据
  */
 function addAqiData() {
-  aqiData.push([$('aqi-city-input').value.trim(),$('aqi-value-input').value.trim()]);
+
+  var city = $('aqi-city-input').value.trim();
+  var aqi = $('aqi-value-input').value.trim();
+  if(/^[\u4e00-\u9fbf]+$/.test(city) && /^[0-9]+$/.test(aqi))
+  {
+    aqiData.push([city,aqi]);
+    return 1;
+  }
+
+  else
+
+    {
+      alert("请输入正确的中文城市名以及aqi的值！");
+      return 0;
+    }
 
 }
 
@@ -49,7 +63,8 @@ function renderAqiList() {
  * 获取用户输入，更新数据，并进行页面呈现的更新
  */
 function addBtnHandle() {
-  addAqiData();
+  var flag = addAqiData();
+  if(flag)
   renderAqiList();
 }
 
