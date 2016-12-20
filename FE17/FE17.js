@@ -305,14 +305,29 @@ function renderChart() {
  */
 function graTimeChange(event) {
   // 确定是否选项发生了变化
-  if(event.target.value !== pageState.nowGraTime)
+  if(event.target.tagName === "SPAN" || event.target.tagName === "INPUT")
   {
+    if(event.target.value !== pageState.nowGraTime)
+    {
     pageState.nowGraTime = event.target.value;
+    var brothers =  event.target.parentNode.parentNode.childNodes;
 
-  }
+    for(i=1;i<brothers.length;i += 2)
+    {
+      if(brothers[i].lastChild === event.target)
+        brothers[i].firstChild.className = 'checked';
+      else {
+        brothers[i].firstChild.className = '';
+      }
+    }
+
+    }
   // 设置对应数据
+
 renderChart();
   // 调用图表渲染函数
+}
+
 }
 
 /**
@@ -419,7 +434,7 @@ function initAqiChartData() {
     }
     allCityAqi.push(singleCityAqi);
   }
-  console.log(allCityAqi);
+
   renderChart();
 
 

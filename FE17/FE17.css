@@ -1,3 +1,20 @@
+label span:hover{
+  background-color: #93AFC4;
+  color: #FFFFFF;
+}
+.checked{
+  background-color: #93AFC4;
+  color: #FFFFFF;
+  display: block;
+  text-align: center;
+}
+
+#city-select:hover{
+  background-color: #9EA1AA;
+  color: #FFFFFF;
+}
+
+
 fieldset{
   margin: 0 auto;
   border-radius: 15px;
@@ -19,7 +36,7 @@ label span{
   display: block;
   text-align: center;
   line-height: 50px;
-  border: 1px solid #16324a;
+  border: 1px solid #93AFC4;
   border-radius: 50%;
   width: 50px;
   height: 50px;
